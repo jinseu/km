@@ -1,0 +1,230 @@
+## python 基础
+
+1. 可以使用`>>`对输出进行重定向，例如`print >> sys.stderr, 'hello'`就可以将hello输出到stderr。
+2. 普通注释与文档注释的区别，文档注释可以在运行时访问。
+3. 不支持自增（++）自减（--）操作
+4. enumerate函数可以即迭代索引，也迭代值。`for i，value in enumerate(foo)`
+5. 列表解析。可以使用一个for循环将所有值放到一个列表中
+```
+>>> kk = [ x ** 2 for x in range(8) if x % 2 != 0]
+>>> kk
+[1, 9, 25, 49]
+```
+6. 可以在同一行书写多个语句，使用`;`分开
+7. python 赋值语句不会返回值
+8. python中可以使用多元赋值。事实上，多元赋值是通过元组来实现的。
+```
+x, y = y, x   #交换x和y的值
+```
+
+## 序列
+
+Python中的内置序列有三种，分别是字符串，列表，元组。其中字符串和元组是不可变类型。
+
+### 序列的特性
+序列的基本特性包括如下
+
+1. 切片
+2. 基本的函数操作，包括min(), max(), len(), repr(), str(), type(), sorted(), 
+3. 基本运算，包括in, not in, *, +
+4. 基本迭代操作 enumerate()
+
+### 切片
+
+切片是python序列的一项重要特性。在Python中对于序列，既可以通过[]操作符访问单个元素。也可以通过[::]的形式对序列进行切片，切片之后的结果仍然是一个序列。
+
+切片的语法
+
+    sequence[start:end:steps]
+
+1. start，end，steps都可以为负值，可以超过字符串的长度，甚至可以都为None。需要说明的是，切片的范围时start<= x <end，即切片的结果中是不包括sequence[end]的。
+
+Sample：
+
+    >>>s = 'abcde'
+    >>>s[None:None:None]
+    'abcde'
+    >>>s[1:5:-1]
+    ''
+    >>>s[1:5:-1]
+    'bd'
+    >>> s[-1:-6:-2]
+    'eca'
+    >>> s[-1:-6:-2]
+    'eca'
+
+### 字符串
+
+字符串是python里最常见的类型。在Python里，单引号和双引号的作用是相同的。Python里，字符串是不可变类型。在python中海油三个单引号或双引号（必须成对使用）包围的字符串，
+
+#### string 模块
+
+在string模块里定义了了一些基本字符串，包括string.uppercase, string.lowercase, string.letters, string.digits。
+string.find(str,beg,end) 检查str是否包含在string或指定的范围中，如果是返回开始索引，否则返回-1.
+string.index(str,beg,end) 和find功能类似，但是在失败的情况下，index会抛出异常，find返回-1.
+string.join(seq)  以string为分隔符，将seq中的所有元素合并为一个新的字符串
+
+#### 常用函数 
+chr() 将一个0~255的整数作为参数，返回对应的字符
+unichr() 将一个超过255的数字作为参数，返回对应的字符
+ord() 以一个字符作为参数返回对应的ASCII数值
+
+
+### 列表
+
+### 元组
+
+元组是一种不可变的序列。
+
+### 切片
+
+切片是python序列的一项重要特性。在Python中对于序列，既可以通过[]操作符访问单个元素。也可以通过[::]的形式对序列进行切片，切片之后的结果仍然是一个序列。
+
+切片的语法
+
+    sequence[start:end:steps]
+
+1. start，end，steps都可以为负值，可以超过字符串的长度，甚至可以都为None。需要说明的是，切片的范围时start<= x <end，即切片的结果中是不包括sequence[end]的。
+
+Sample：
+
+    >>>s = 'abcde'
+    >>>s[None:None:None]
+    'abcde'
+    >>>s[1:5:-1]
+    ''
+    >>>s[1:5:-1]
+    'bd'
+####序列相关的内建函数
+
+#### enumerate(sequence, start=0) 
+
+Return an enumerate(列举，枚举) object. sequence must be a sequence, an iterator, or some other object which supports iteration. The next() method of the iterator returned by enumerate() returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over sequence:
+
+```
+>>> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+>>> list(enumerate(seasons))
+[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+>>> list(enumerate(seasons, start=1))
+[(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
+Equivalent to:
+
+def enumerate(sequence, start=0):
+    n = start
+    for elem in sequence:
+        yield n, elem
+        n += 1
+```
+
+
+#### range(start, stop[, step]) 
+
+This is a versatile function to create lists containing arithmetic progressions. It is most often used in for loops. The arguments must be plain integers. If the step argument is omitted, it defaults to 1. If the start argument is omitted, it defaults to 0. The full form returns a list of plain integers [start, start + step, start + 2 * step, ...]. If step is positive, the last element is the largest start + i * step less than stop; if step is negative, the last element is the smallest start + i * step greater than stop. step must not be zero (or else ValueError is raised). Example:
+
+```
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> range(1, 11)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> range(0, 30, 5)
+[0, 5, 10, 15, 20, 25]
+>>> range(0, 10, 3)
+[0, 3, 6, 9]
+>>> range(0, -10, -1)
+[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+>>> range(0)
+[]
+>>> range(1, 0)
+[]
+```
+
+需要说明的是，在列表很大的时候，使用xrange会更为合适，因为他不会在内存里创建完整的拷贝。
+
+#### iter(o[, sentinel]) 
+
+Return an iterator object. The first argument is interpreted very differently depending on the presence of the second argument. Without a second argument, o must be a collection object which supports the iteration protocol (the __iter__() method), or it must support the sequence protocol (the __getitem__() method with integer arguments starting at 0). If it does not support either of those protocols, TypeError is raised. If the second argument, sentinel(岗哨，哨兵), is given, then o must be a callable object. The iterator created in this case will call o with no arguments for each call to its next() method; if the value returned is equal to sentinel, StopIteration will be raised, otherwise the value will be returned.
+
+One useful application of the second form of iter() is to read lines of a file until a certain line is reached. The following example reads a file until the readline() method returns an empty string:
+
+```
+with open('mydata.txt') as fp:
+    for line in iter(fp.readline, ''):
+        process_line(line)
+```
+
+## 字典与集合
+
+### 字典
+
+字典是python里默认的映射容器。
+
+####基本用法
+
+1. 可以直接用迭代器迭代字典来获得字典的key
+```  
+     for key in dict2:
+        dict2[key]
+```    
+
+2. in，not in 相当于has_key方法，检查某个键是否在字典中
+
+3. 可以用cmp()函数对两个字典进行比较，在比较时，首先根据字典的大小进行比较，然后是键，最后是值。如果大小一样，会对键进行依次比较，键比较时的顺序和key()方法返回的顺序相同。
+4. len()可以获得字典的大小
+5. hash()可以判断某个对象是否可以作为一个字典的键。这里需要说明的是python中键必须是可hash的，即一般来说，需要不可变对象。否则对象的值改变后，便不能可靠地依靠的存储和获取相关的数据。
+
+#### 字典类的常用函数
+
+1. update 可以将一个字典的内容合并到另一个字典中
+2. clear  清空字典
+3. fromkey(seq,value=None) 创建一个字典，seq中的值为键，所有键对应的值为value
+4. items()返回键值对元组的列表[(key,value)]
+5. key() 键的列表
+6. setdefault(key, default=None) 如果字典中，key不存在，则用default赋值
+7. pop(key[,default]) 如果key存在，则删除并返回对应的value，否则返回default
+7. get(key, default=None)  返回key的value，如果key不存在，则返回None
+8. python中字典没有set方法
+
+### 集合
+
+python 中的集合分为两类，分别是set和frozenset，其中set是可变集合，frozenset是不可变集合。python中的集合除了支持最基本的 in, not in,add(), remove()操作之外，还支持非常多样化的集合运算操作。
+
+集合操作如下表所示：
+
+
+| 操作类型 |操作符|说明|
+|-------|-----|--|
+|并集| (按位或) | 属于A或属于B|
+|交集| &|属于A且属于B|
+|差集| -|属于A但不属于B|
+|对称差分| ^|只属于A或只属于B|
+
+另外还有&= |= -= ^=四种操作符
+
+另外需要说明的是，frozenset和set混合运算时，结果与左边的集合类型保持一致。
+
+最后，集合还支持discard()方法，当s中存在obj时便丢弃，如不存在，也不会抛出异常。remove方法在不存在时，会抛出异常。
+
+## 条件与循环
+
+### 条件表达式
+
+python中支持三元操作符
+   
+    # 相当于smaller = x < y ? x : y
+    smaller = x if x < y else y
+
+
+### 循环
+
+在python中还支持while-else循环，else部分只会在循坏完成后执行。也就是说，break会跳过else块。for循环也可以有else子句，执行的方式和while相同。
+
+python中还支持列表解析,语法如下：
+
+[expr for iter_var in iterable]
+[expr for iter_var in iterable if cond_expr]
+
+### 迭代器
+
+## 元编程
+
+### 装饰器
