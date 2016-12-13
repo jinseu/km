@@ -12,13 +12,13 @@ Namespace则是在chroot的基础上更进一步，更为完整的隔离。目�
 
 | 分类 | 系统调用参数 | 隔离域 |
 |------|------------|------------|
-|Mount namespaces | CLONE_NEWNS	| Mount points| 
-|UTS namespaces	| CLONE_NEWUTS	| Hostname and NIS domain name| 
-|IPC namespaces	| CLONE_NEWIPC	| System V IPC, POSIX message queues| 
-|PID namespaces	| CLONE_NEWPID	| Process IDs| 
+|Mount namespaces | CLONE_NEWNS	| Mount points | 
+|UTS namespaces	| CLONE_NEWUTS	| Hostname and NIS domain name | 
+|IPC namespaces	| CLONE_NEWIPC	| System V IPC, POSIX message queues | 
+|PID namespaces	| CLONE_NEWPID	| Process IDs | 
 |Network namespaces	| CLONE_NEWNET	| Network devices, stacks, ports, etc.| 
 |User namespaces	| CLONE_NEWUSER	| User and group IDs |
-|Cgroup| CLONE_NEWCGROUP | Cgroup root directory|
+|Cgroup | CLONE_NEWCGROUP | Cgroup root directory |
 
 在以上几种Namespace中Mount namespaces, UTS namespaces, IPC namespaces, PID namespaces比较简单。User namespaces，User namespaces，则相对比较复杂。
 
@@ -41,25 +41,22 @@ ID-inside-ns ID-outside-ns length
 第二个字段ID-outside-ns表示容器外映射的真实的UID或GID。
 第三个字段表示映射的范围，一般填1，表示一一对应。
 比如，把真实的uid=1000映射成容器内的uid=0
-
-比如，把真实的uid=1000映射成容器内的uid=0
-
-1
-2
+```
 $ cat /proc/2465/uid_map
          0       1000          1
+```
 再比如下面的示例：表示把namespace内部从0开始的uid映射到外部从0开始的uid，其最大范围是无符号32位整形
-
-1
-2
+```
 $ cat /proc/$$/uid_map
          0          0          4294967295
+```
 另外，需要注意的是：
 
 写这两个文件的进程需要这个namespace中的CAP_SETUID (CAP_SETGID)权限（可参看Capabilities）
 写入的进程必须是此user namespace的父或子的user namespace进程。
 另外需要满如下条件之一：1）父进程将effective uid/gid映射到子进程的user namespace中，2）父进程如果有CAP_SETUID/CAP_SETGID权限，那么它将可以映射到父进程中的任一uid/gid。
 
+### Network Namspace
 
 具体隔离的种类，可以在以下三个系统调用中指定。
 * clone()
