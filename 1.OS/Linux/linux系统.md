@@ -395,52 +395,7 @@ https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/
 
 密码短语，实现对私钥的加密
 
-### find
 
--name 根据文件名进行查找
--iname 根据文件名进行查找，并忽略大小写
--o  表示条件之间是or关系
--path 匹配文件路径
--regex 根据正则表达式来匹配路径
-！ 否定参数，例如 ！ -name ".txt" 找到所有不以txt结尾的文件名
--maxdepth 最大递归深度
--mindepth 最小递归深度
--atime 按照修改时间查找，整数，单位为天。-表示小于，+表示大于，无符号则表示恰好在该天修改的。
--mtime
--ctime
--amin 按照修改时间查找，整数，单位为分钟
--mmin
--cmin
--anewer 按照访问时间找到比某个文件更新的文件
--cnewer
--newer  按照修改时间找到比某个文件更新的文件
--size   按照大小查找-表示小于，+表示大于，无符号则表示恰好这么大。可以使用的单位包括b,c,w,k,M,G
--user   按照文件所有权进行查找
-
--exec  可以对查询结果，执行其他命令。
-
-####1. find能根据哪些条件来查找文件
-
-文件名，文件权限，用户名，修改时间，访问时间（访问时间是文件最后一次被读取的时间），创建时间（文件元数据最后一次被更改的时间），类型，大小，目录的深度，inode
-
-常见的type有 b（块文件） d（目录） c（字符文件） p（管道文件） l（链接） f（普通文件） s（socket文件）
-
-####2. find能否根据文件内容来检索
-
-不可以，本身只是根据文件的属性进行查找的
-
-####3. find删除找到的文件的
-
-    删除查找到的文件
-    find . -name "*.md" -delete
-    find . -name "*.dump" | xargs rm -f
-    find . -type f -name "*.dump" -exec rm -f '{}' \;
-    #查找后缀为txt或pdf的文件
-    find . \( -name "*.txt" -o -name "*.pdf"\)
-    #找到比file.txt更新的文件
-    find . -type f -newer file.txt
-    #跳过指定的目录
-    find . \( -name ".git" -prune \) -o \( -type f \)
 
 
 ### grep 
