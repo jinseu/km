@@ -66,6 +66,152 @@ filter
 
 ### celery特性说明
 
+
+#### 调用任务
+
+**调用方式**
+
+任务的调用方式有以下几种：
+1. apply_async
+2. delay  发送任务消息的简写，不支持执行选项
+3. 直接调用任务对象
+
+**Linking**
+
+可以为分别任务指定callbacks/errbacks
+
+```
+add.apply_async((2, 2), link=add.s(16), link_error=error_handler.s())
+```
+
+同时link和link_error 可以在一个列表中声明
+
+```
+add.apply_async((2, 2), link=[add.s(16), other_task.s()])
+```
+
+**状态变更**
+
+Celery 通过设置 setting_on_message 回调支持捕获所有状态变更。
+
+例如对于一个长时间运行的任务，可以这样做
+
+```
+@app.task(bind=True)
+def hello(self, a, b):
+    time.sleep(1)
+    self.update_state(state="PROGRESS", meta={'progress': 50})
+    time.sleep(1)
+    self.update_state(state="PROGRESS", meta={'progress': 90})
+    time.sleep(1)
+    return 'hello world: %i' % (a+b)
+def on_raw_message(body):
+    print(body)
+```
+
+任务发送端
+
+```
+r = hello.apply_async()
+print(r.get(on_message=on_raw_message, propagate=False))
+Will generate output like this:
+```
+
+执行结果
+
+```
+{'task_id': '5660d3a3-92b8-40df-8ccc-33a5d1d680d7',
+ 'result': {'progress': 50},
+ 'children': [],
+ 'status': 'PROGRESS',
+ 'traceback': None}
+{'task_id': '5660d3a3-92b8-40df-8ccc-33a5d1d680d7',
+ 'result': {'progress': 90},
+ 'children': [],
+ 'status': 'PROGRESS',
+ 'traceback': None}
+{'task_id': '5660d3a3-92b8-40df-8ccc-33a5d1d680d7',
+ 'result': 'hello world: 10',
+ 'children': [],
+ 'status': 'SUCCESS',
+ 'traceback': None}
+hello world: 10
+```
+
+**ETA Countdown**
+
+ETA（估计到达时间）使你可以声明任务将被执行的最早时间。以后，countdown 则是一种简便的方式。用来设置ETA 距离目前的时间（单位为s）。
+
+设置ETA 仅仅保证，执行时间在给定的时间之后，但并不是准确的时间。可能由于消息队列的阻塞和网络延迟导致一定的延迟。
+
+eta 必须是一个 datetime 对象，用来声明一个精确的日期和时间（包含毫秒精度，以及时区信息
+```
+result = add.apply_async((2, 2), countdown=3)
+result.get()   # this takes at least 3 seconds to return
+
+from datetime import datetime, timedelta
+
+tomorrow = datetime.utcnow() + timedelta(days=1)
+add.apply_async((2, 2), eta=tomorrow)
+```
+
+**Expiration**
+
+在调用任务的时候，可以指定expires选项，来指定任务失效的的时间。worker收到失效的任务后，会返回TaskRevokedError。
+
+**Message Sending Retry**
+
+当链接失败，celery 会重试发送任务消息，并且重试行为可以设置 - 比如重试的频率，或者最大重试次数 - 或者禁用所有。
+
+禁用消息发送重试，你可以设置重试的执行选项为 False:
+
+``` 
+add.apply_async((2, 2), retry=False)
+```
+
+**Retry Policy**
+
+具体的，重试策略可以设置
+
+1. max_retries 最大重试次数，None 值意味着一直重试 
+默认重试3次
+2. interval_start 定义首次重试间隔的秒数（浮点数或者整数）。默认是0（首次重试会立即进行）
+3. interval_step 每进行一次重试，这个值会加到重试延迟里（浮点数或者整数）。默认是0.2。
+4. interval_max  重试之间间隔的最大秒数
+
+**Connection Error Handling**
+
+当你发送一个任务消息，而消息传输链接丢失了，或者链接不能被初始化了，一个 OperationError
+
+
+**Serializers**
+
+内建的序列化器有 JSON, pickle, YAML 以及 msgpack。可以用serializer参数指定。
+
+**Compression**
+
+Celery 使用 gzip或者 bzip2 压缩消息。你也可以创建自己的压缩模式，并注册到 Kombu 压缩模式注册表。使用compression参数指定。
+
+**Connections**
+
+celery默认支持连接池，同时可以用broker_pool_limit指定，最大链接数。
+
+```
+from celery import group
+
+numbers = [(2, 2), (4, 4), (8, 8), (16, 16)]
+res = group(add.s(i, j) for i, j in numbers).apply_async()
+
+res.get() #[4, 8, 16, 32]
+```
+
+**Routing**
+
+celery 可以发送任务的时候用queue参数指定队列。同时还可以使用exchange，routing_key，priority等参数。
+
+
+> http://docs.celeryproject.org/en/latest/userguide/index.html
+
 #### Concurrency
 
 #### celery Routing
