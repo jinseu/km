@@ -35,3 +35,10 @@ keystone 提供的服务
 
 
 ### Policy
+
+
+### keystone 源码解析
+
+keystone在启动时，可以通过keystone-all 这个脚本启动，同时可以使用keystone-manage这个命令进行管理。
+
+在keystone-all 中会从 `keystone.server import eventlet`，然后运行`eventlet_server.run(possible_topdir)`。

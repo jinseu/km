@@ -8,12 +8,12 @@
 
 
 * [2. 编程语言](/1.OS/README.md)
-   * [2.1 JAVA](/2.Language/JAVA/README.md)
-       * [2.1.1 集合框架和并发](/2.Language/JAVA/0.collection&concurrent.md)
-       * [2.1.2 Spring](/2.Language/JAVA/1.collection&concurrent.md)
-       * [2.1.3 NIO and Netty](/2.Language/JAVA/2.nio&netty.md)
-       * [2.1.4 类与异常](/2.Language/JAVA/3.class&exception.md)
-       * [2.1.5 反射与注解](/2.Language/JAVA/4.reflect&annotation.md)
+   * [2.1 JAVA](./2.Language/JAVA/README.md)
+       * [2.1.1 集合框架和并发](./2.Language/JAVA/0.collection&concurrent.md)
+       * [2.1.2 对象与内存](./2.Language/JAVA/3.object&memory.md)
+       * [2.1.3 反射与注解与异常](./2.Language/JAVA/4.reflect&annotation&exception.md)
+       * [2.1.4 NIO and Netty](./2.Language/JAVA/nio_netty.md)
+       * [2.1.5 Spring](./2.Language/JAVA/spring.md)
 
 * [算法](/1.OS/README.md)
 
