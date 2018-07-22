@@ -11,7 +11,7 @@
         <</SPAN>isNotNull property="descOrAsc"> $descOrAsc$ </</SPAN>isNotNull>
     </</SPAN>isNotNull>
  
-3. #方式能够很大程度防止sql注入． 
+3. `#`方式能够很大程度防止sql注入． 
 
 4. $方式一般用于传入数据库对象．例如传入表名. 
 

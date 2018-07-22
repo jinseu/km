@@ -11,3 +11,17 @@ SELECT MAX(Salary) AS SecondHighestSalary
  WHERE Salary < (SELECT MAX(Salary)
                  FROM Employee); 
 ```
+
+#### 2. MySQL 查看配置
+
+```
+SHOW VARIABLES LIKE '%innodb_autoinc_lock_mode%';
+```
+
+
+#### 3. MySQL 查看索引与key
+
+```
+show index from tbl_name;
+show key from tbl_name
+```

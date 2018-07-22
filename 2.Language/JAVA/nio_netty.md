@@ -13,13 +13,15 @@ Buffer 是一个对象， 它包含一些要写入或者刚读出的数据。 �
 缓冲区类型
 最常用的缓冲区类型是 ByteBuffer。一个 ByteBuffer 可以在其底层字节数组上进行 get/set 操作(即字节的获取和设置)。
 ByteBuffer 不是 NIO 中唯一的缓冲区类型。事实上，对于每一种基本 Java 类型都有一种缓冲区类型：
-•	ByteBuffer
-•	CharBuffer
-•	ShortBuffer
-•	IntBuffer
-•	LongBuffer
-•	FloatBuffer
-•	DoubleBuffer
+
+- ByteBuffer
+- CharBuffer
+- ShortBuffer
+- IntBuffer
+- LongBuffer
+- FloatBuffer
+- DoubleBuffer
+
 每一个 Buffer 类都是 Buffer 接口的一个实例。 除了 ByteBuffer，每一个 Buffer 类都有完全一样的操作，只是它们所处理的数据类型不一样。因为大多数标准 I/O 操作都使用 ByteBuffer，所以它具有所有共享的缓冲区操作以及一些特有的操作。
 
 **内部实现**
