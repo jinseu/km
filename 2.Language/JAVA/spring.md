@@ -23,7 +23,7 @@ tcp-proxy-0.0.1-SNAPSHOT.jar.original
 
 其中，tcp-proxy-0.0.1-SNAPSHOT.jar.original是默认的maven-jar-plugin生成的包。
 
-tcp-proxy-0.0.1-SNAPSHOT.jar则是spring boot maven 插件生成的包，里面包含了应用的以依赖，以及spring boot 相关的类。
+tcp-proxy-0.0.1-SNAPSHOT.jar则是spring boot maven 插件生成的包，里面包含了应用的依赖，以及spring boot 相关的类。
 
 解压tcp-proxy-0.0.1-SNAPSHOT.jar包之后，可以发现，目录结构如下所示：
 
@@ -52,8 +52,7 @@ tcp-proxy-0.0.1-SNAPSHOT.jar则是spring boot maven 插件生成的包，里面�
                 ├── ...                
 ```
 
-
-首先MANIFEST.MF 中的内容如下:
+**MANIFEST.MF**
 
 ```
 Manifest-Version: 1.0
@@ -74,7 +73,17 @@ Main-Class: org.springframework.boot.loader.JarLauncher
 
 Start-Class则是应用自己的Main函数 io.igx.proxy.TcpProxyApplication。
 
-在实际启动时，java虚拟机汇价在Main-Class
+在实际启动时，java虚拟机会首先加载并运行在Main-Class
+
+**lib目录**
+
+这里存放的是应用的Maven依赖的jar包文件。 
+比如spring-beans，spring-mvc等jar。
+
+
+**org/springframework/boot/loader**
+
+这下面存放的是Spring boot loader的.class文件。
 
 
 > http://blog.csdn.net/hengyunabc/article/details/50120001
@@ -86,3 +95,24 @@ Start-Class则是应用自己的Main函数 io.igx.proxy.TcpProxyApplication。
 #### spring boot embed tomcat是如何工作的？ 
 
 静态文件，jsp，网页模板这些是如何加载到的？
+
+
+#### Spring boot 的使用
+
+
+
+#### Q&A
+
+**ibatis`$`与`#`号的区别**
+
+1. `#`是把传入的数据当作字符串，如`#field#`传入的是id,则sql语句生成是这样，`order by "id"`。 
+
+2. `$`传入的数据直接生成在sql里，如`$field$`传入的是id,则sql语句生成是这样，`order by id`, 这就对了． 如：
+ 
+3. `#`方式能够很大程度防止sql注入． 
+
+4. `$`方式一般用于传入数据库对象．例如传入表名. 
+
+5. 一般能用`#`的就不用`$`.
+
+http://www.cnblogs.com/google4y/p/3556357.html

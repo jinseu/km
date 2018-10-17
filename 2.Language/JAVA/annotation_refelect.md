@@ -75,6 +75,8 @@ static Object newProxyInstance(ClassLoader loader, Class[] interfaces,
 ```
 
 
+#### CGLib
+
 ### 类加载器
 
 #### 基本概念
@@ -141,3 +143,28 @@ Class.forName是一个静态方法，同样可以用来加载类。该方法有�
 需要注意的是，用户自定义的类并不一定要严格按照代理模式，例如，以Tomcat 为例，每个 Web 应用都有一个对应的类加载器实例。该类加载器也使用代理模式，所不同的是它是首先尝试去加载某个类，如果找不到再代理给父类加载器。这与一般类加载器的顺序是相反的。这是 Java Servlet 规范中的推荐做法，其目的是使得 Web 应用自己的类的优先级高于 Web 容器提供的类。
 
 
+
+
+### Exception
+
+#### 基本语法
+
+#### Exception类层次
+
+所有异常类的基类是`java.lang.Throwable`,Throwable 有两个直接子类`Error`和`Excption`。
+
+An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions. The ThreadDeath error, though a "normal" condition, is also a subclass of Error because most applications should not try to catch it.
+
+A method is not required to declare in its throws clause any subclasses of Error that might be thrown during the execution of the method but not caught, since these errors are abnormal conditions that should never occur.
+
+
+`Error`
+
+#### 何时需要声明throws，何时不需要
+
+
+#### 参考资料
+
+> http://www.liquid-reality.de/display/liquid/2011/02/15/Karaf+Tutorial+Part+1+-+Installation+and+First+application
+> https://www.ibm.com/developerworks/cn/java/j-lo-proxy1/
+> https://www.ibm.com/developerworks/cn/java/j-lo-proxy2/

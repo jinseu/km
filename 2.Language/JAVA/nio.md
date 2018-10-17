@@ -98,10 +98,14 @@ isOpen()
 
 Selector是一个多路复用器，与SelectableChannel一起实现了多路复用。在具体使用时，基本方法如下：
 
-1. channel.register(selector, SelectionKey.OP_ACCEPT);
-2. selector.select(1000);
-3. Set<SelectionKey> selectedKeys = selector.selectedKeys();
-4. 获取SelectionKey
+**1. channel.register(selector, SelectionKey.OP_ACCEPT)**
+
+**2. selector.select(1000)**
+
+**3. Set<SelectionKey> selectedKeys = selector.selectedKeys()**
+
+**4. 获取SelectionKey**
+
 ```
 Iterator<SelectionKey> it = selectedKeys.iterator();
 SelectionKey key = null;
@@ -113,7 +117,8 @@ while(it.hasNext())
 }
 ```
 
-5. 从key获取对应的channel，然后读写数据
+**5. 从key获取对应的channel，然后读写数据**
+
 ```
 SocketChannel sc = (SocketChannel) key.channel();
 ByteBuffer readBuffer = ByteBuffer.allocate(1024);
@@ -141,10 +146,12 @@ The completed method is invoked when the I/O operation completes successfully. T
 
 java AIO机制中另外一个重要组成部分是AsynchronousByteChannel 接口（非线程安全），这个接口提供了四个方法，分别是
 
+```
 1. read(ByteBuffer dst)
 2. read(ByteBuffer dst, A attachment, CompletionHandler<Integer,? super A> handler)
 3. write(ByteBuffer src)
 4. write(ByteBuffer src, A attachment, CompletionHandler<Integer,? super A> handler)
+```
 
 方法1、3会分别进行读写操作，然后将结果放入一个Future<Integer>对象中。
 方法2、4则是继续进行异步读写，然后在读写完成后回调CompletionHandler类
@@ -295,7 +302,6 @@ public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuf
 ```
 
 
-#### Netty
 
 
 

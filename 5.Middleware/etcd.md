@@ -133,6 +133,10 @@ message Compare {
 watch 是一个grpc stream to stream的接口，客户端写入watch request，etcd返回event。watch保证event是原子的，可靠的，有序的。WatchCreateRequest的格式如下:
 
 ```
+# rpc 定义
+rpc Watch(stream WatchRequest) returns (stream WatchResponse)
+
+# WatchCreateRequest 定义
 message WatchCreateRequest {
   bytes key = 1;
   bytes range_end = 2;
@@ -146,18 +150,69 @@ message WatchCreateRequest {
   repeated FilterType filters = 5;
   bool prev_kv = 6;
 }
+
+# WatchCreateRequest 定义
+message WatchResponse {
+  ResponseHeader header = 1;
+  // watch_id is the ID of the watcher that corresponds to the response.
+  int64 watch_id = 2;
+  // created is set to true if the response is for a create watch request.
+  // The client should record the watch_id and expect to receive events for
+  // the created watcher from the same stream.
+  // All events sent to the created watcher will attach with the same watch_id.
+  bool created = 3;
+  // canceled is set to true if the response is for a cancel watch request.
+  // No further events will be sent to the canceled watcher.
+  bool canceled = 4;
+  // compact_revision is set to the minimum index if a watcher tries to watch
+  // at a compacted index.
+  //
+  // This happens when creating a watcher at a compacted revision or the watcher cannot
+  // catch up with the progress of the key-value store.
+  //
+  // The client should treat the watcher as canceled and should not try to create any
+  // watcher with the same start_revision again.
+  int64 compact_revision  = 5;
+
+  // cancel_reason indicates the reason for canceling the watcher.
+  string cancel_reason = 6;
+
+  repeated mvccpb.Event events = 11;
+}
+
+# event 定义
+message Event {
+  enum EventType {
+    PUT = 0;
+    DELETE = 1;
+  }
+  // type is the kind of event. If type is a PUT, it indicates
+  // new data has been stored to the key. If type is a DELETE,
+  // it indicates the key was deleted.
+  EventType type = 1;
+  // kv holds the KeyValue for the event.
+  // A PUT event contains current kv pair.
+  // A PUT event with kv.Version=1 indicates the creation of a key.
+  // A DELETE/EXPIRE event contains the deleted key with
+  // its modification revision set to the revision of deletion.
+  KeyValue kv = 2;
+
+  // prev_kv holds the key-value pair before the event happens.
+  KeyValue prev_kv = 3;
+}
 ```
 
 `start_revision`指定了从某个特定的revision开始，`Progress_Notify`意味着在没有事件发生的情况下周期性收到WatchResponse（with no events）,发送的间隔则由etcd决定。
 
 **Lease API**
 
-lease 在创建时需要提供ttl以及id（如果没有id，etcd会默认分配），然后需要定期Keep alives，删除的时候调用revoke即可。lease 删除的时候关联的key也会被删除。
+lease 在创建时需要提供ttl以及id（如果没有id，etcd会默认分配），然后需要定期Keep alives，删除的时候调用revoke即可。lease 删除的时候关联的key也会被删除。lease相关的api比较简单，在此不再详述。
 
 
 #### RAFT
 
-RAFT 协议中一个集群，有以下状态
+RAFT 协议可以看做由两部分组成:
+
 1. Leader Election
 2. Log Replication
 
@@ -172,6 +227,7 @@ RAFT 协议中一个集群，有以下状态
 7. Leader 会周期性的发送Append Entries，作为心跳
 8. Followers 会回答Append Entries，并重置election timeout。
 9. 7-8 两步会一直持续直到Follower停止接收心跳或者变为Candidate
+10. 在leader宕机后，由于Follower在election timeout时间内收不到来自Leader的消息，
 
 在Leader Election有可能会出现两个Candidate得票相同的情况，此时，Candidate会继续等待一段时间，然后重新Request Vote。
 
