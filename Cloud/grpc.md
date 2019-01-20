@@ -97,4 +97,6 @@ gRpc 虽然支持比较多的语言，但是事实上只有三种实现，分别
 ### python
 
 
-###
+> https://blog.bugsnag.com/grpc-and-microservices-architecture/
+> https://grpc.io/blog/principles
+> https://platformlab.stanford.edu/Seminar%20Talks/gRPC.pdf
