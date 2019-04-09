@@ -209,37 +209,6 @@ message Event {
 lease 在创建时需要提供ttl以及id（如果没有id，etcd会默认分配），然后需要定期Keep alives，删除的时候调用revoke即可。lease 删除的时候关联的key也会被删除。lease相关的api比较简单，在此不再详述。
 
 
-#### RAFT
-
-RAFT 协议可以看做由两部分组成:
-
-1. Leader Election
-2. Log Replication
-
-**Leader Election**
- 
-1. node 有三种状态，Follower，Candidate, Leader
-2. 所有节点在初始化时，都在Follower状态
-3. 在election timeout时间内，如果Follower状态没有感知到来自Leader的消息，那么进入Candidate状态，此处election timeout是随机值在 150ms ~ 300ms之间。
-4. Candidate 会vote它自己，然后向其他节点请求votes（Request Vote Message)
-5. 如果收到的节点此前没有vote 其他节点，就回复Candidate votes，同时重置election timeout
-6. Candidate在接收到超过半数的节点reply votes后会变为Leader。如果没有重新进入follower状态 2.
-7. Leader 会周期性的发送Append Entries，作为心跳
-8. Followers 会回答Append Entries，并重置election timeout。
-9. 7-8 两步会一直持续直到Follower停止接收心跳或者变为Candidate
-10. 在leader宕机后，由于Follower在election timeout时间内收不到来自Leader的消息，
-
-在leader election完成之后，对etcd 集群的更改都将通过leader来完成。
-
-**Log Replication**
-
-1. 每一个更改作为一个entry，加入leader 节点的log
-2. log entry 并不马上提交，会将log entry(也是心跳)的副本发送到其他follower 节点
-3. leader会等待直到大多数节点收到entry
-4. leader节点会提交entry，改变待更改的值。
-5. 返回请求给客户端，表示操作成功
-5. 通知followers 提交entry
-
 #### 关键源码解析
 
 **数据存储**
