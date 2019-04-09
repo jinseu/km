@@ -1,6 +1,6 @@
 ### etcd
 
-etc的官方介绍是Etcd is a distributed, consistent key-value store for shared configuration and service discovery。
+etcd的官方介绍是Etcd is a distributed, consistent key-value store for shared configuration and service discovery。
 
 #### 基本使用
 
@@ -84,7 +84,7 @@ message RangeRequest {
 
 **Transaction**
 
-transaction 是一个原子的If/Then/Else操作，类似于CAS。可以原子的处理多个请求，即一个tansaction即使有多个操作，revision也只增加一次。于是，**在一个tansaction不能更新同一个键多次，tansaction只能对一个已有的kv和给定的常量对比，不能对两个kv进行对比。**
+transaction 是一个原子的If/Then/Else操作，类似于CAS。可以原子的处理多个请求，即一个tansaction即使有多个操作，revision也只增加一次。**在一个tansaction不能更新同一个键多次，tansaction只能对一个已有的kv和给定的常量对比，不能对两个kv进行对比。**
 
 ```
 message TxnRequest {
@@ -223,13 +223,11 @@ RAFT 协议可以看做由两部分组成:
 3. 在election timeout时间内，如果Follower状态没有感知到来自Leader的消息，那么进入Candidate状态，此处election timeout是随机值在 150ms ~ 300ms之间。
 4. Candidate 会vote它自己，然后向其他节点请求votes（Request Vote Message)
 5. 如果收到的节点此前没有vote 其他节点，就回复Candidate votes，同时重置election timeout
-6. Candidate在接收到超过半数的节点reply votes后会变为Leader。
+6. Candidate在接收到超过半数的节点reply votes后会变为Leader。如果没有重新进入follower状态 2.
 7. Leader 会周期性的发送Append Entries，作为心跳
 8. Followers 会回答Append Entries，并重置election timeout。
 9. 7-8 两步会一直持续直到Follower停止接收心跳或者变为Candidate
 10. 在leader宕机后，由于Follower在election timeout时间内收不到来自Leader的消息，
-
-在Leader Election有可能会出现两个Candidate得票相同的情况，此时，Candidate会继续等待一段时间，然后重新Request Vote。
 
 在leader election完成之后，对etcd 集群的更改都将通过leader来完成。
 
