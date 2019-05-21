@@ -20,6 +20,7 @@ LeetCode
 |806|[806. Number of Lines To Write String](https://leetcode.com/problems/number-of-lines-to-write-string/description/)|[Go](./algorithms/Array/806.go)|Easy|
 |804|[804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words/description/)|[Go](./algorithms/String/804.go)|Easy|
 |796|[796. Rotate String](https://leetcode.com/problems/rotate-string/description/)|[Go](./algorithms/String/796.go)|Easy|
+|789|[789. Escape The Ghosts](https://leetcode.com/problems/escape-the-ghosts/)|[Python](./algorithms/Math/789.py)|Medium| |
 |784|[784. Letter Case Permutation](https://leetcode.com/contest/weekly-contest-72/problems/is-graph-bipartite/)|[Go](./algorithms/String/784.go)|Easy| 字符串 回溯法 |
 |771|[771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/description/)|[Go](./algorithms/Array/771.go)|Easy|
 |763|[763. Partition Labels](https://leetcode.com/problems/partition-labels/)|[Go](./algorithms/Array/763.go)|Medium|
