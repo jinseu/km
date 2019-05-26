@@ -44,9 +44,9 @@ RAFT 算法有以下特点
 
 CAP定理（CAP theorem，此处的A和ACID中的A不是同一个词），指出对于一個分布式计算系统而言，不可能同時满足以下三点：
 
-1. 一致性（Consistency） （等同于所有节点访问同一份最新的数据副本）
-2. 可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）
-3. 分区容错性（Partition tolerance）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择。
+1. 一致性（Consistency） writes are in order, and you'll get the same answer from multiple servers at any point in that order
+2. 可用性（Availability）if a database node is running, you can always write to it
+3. 分区容错性（Partition tolerance）even if database nodes can't communicate with each other, you can still read the data
 
 理解CAP理论的最简单方式是想象两个节点分处分区两侧。允许至少一个节点更新状态会导致数据不一致，即丧失了C性质。如果为了保证数据一致性，将分区一侧的节点设置为不可用，那么又丧失了A性质。除非两个节点可以互相通信，才能既保证C又保证A，这又会导致丧失P性质。
 
