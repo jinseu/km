@@ -13,6 +13,7 @@ LeetCode
 |887|[887. Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes/description/)|[Go](./algorithms/Math/887.go)|Easy|数组遍历/Math 3D|
 |876|[876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/description/)|[Go](./algorithms/LinkedList/876.go)|Easy|链表遍历|
 |867|[867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/description/)|[Go](./algorithms/Array/867.go)|Easy|矩阵转置|
+|861|[861. Score After Flipping Matrix](https://leetcode.com/problems/score-after-flipping-matrix/)|[Go](./algorithms/Array/861.go)|Medium|
 |852|[852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/description/)|[Go](./algorithms/Array/852.go)|Easy|数组遍历|
 |836|[836. Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/description/)|[Go](./algorithms/Math/836.go)|Easy|
 |832|[832. Flipping an Image](https://leetcode.com/problems/flipping-an-image/description/)|[Go](./algorithms/Array/832.go)|Easy|数组遍历|
