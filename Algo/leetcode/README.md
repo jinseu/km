@@ -39,6 +39,7 @@ LeetCode
 |605|[605. Can Place Flowers](https://leetcode.com/problems/can-place-flowers/)|[Go](./algorithms/Array/605.go)|Easy|数组|
 |561|[561. Array Partition I](https://leetcode.com/problems/array-partition-i/description/)|[Go](./algorithms/Array/561.go)|Easy|数组|
 |521|[Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i)|[JAVA](./algorithms/String/521.java)|Easy|
+|488|[488. Zuma Game](https://leetcode.com/problems/zuma-game/)|[GO](./algorithms/Dynamic/488.go)|Hard|
 |486|[486. Predict the Winner](https://leetcode.com/problems/predict-the-winner/description/)|[GO](./algorithms/Dynamic/486.go)|Medium|动态规划|
 |477|[Perfect Number](https://leetcode.com/problems/perfect-number/)|[JAVA](./algorithms/Math/507.java)|Easy|
 |476|[476. Number Complement](https://leetcode.com/problems/number-complement/description/)|[Go](./algorithms/Bit/476.go)|Easy|Bit|
