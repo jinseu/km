@@ -397,3 +397,7 @@ func kvsToEvents(wg *watcherGroup, revs, vals [][]byte) (evs []mvccpb.Event) {
 #### 注释
 
 1. `<-chan int`是一个管道类型，它叫做单向channel。如果是`<-chan int`，说明是只能读不能写的管道（也不能关闭），如果是`chan <- int`，说明是只能写不能读的管道（可以关闭）。
+
+#### 参考链接
+
+> https://draveness.me/etcd-introduction
