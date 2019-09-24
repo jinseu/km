@@ -1,6 +1,6 @@
 ## Namespace
 
-Linux Namespace是Linux提供的一种内核级别环境隔离的方法，实现了对UTS、IPC、mount、PID、network、User等的隔离机制。（chroot系统调用，可以将一个用户的根目录转移到某个指定目录下。使其不能访问指定目录外的内容，从而实现一定程度上的隔离）
+Linux Namespace是Linux提供的一种内核级别环境隔离的方法，实现了对UTS、IPC、Mount、PID、Network、User等的隔离机制。（chroot系统调用，可以将一个用户的根目录转移到某个指定目录下。使其不能访问指定目录外的内容，从而实现一定程度上的隔离）
 
 Namespace则是在chroot的基础上更进一步，更为完整的隔离。目前Linux Namespace有如下种类。
 
@@ -46,8 +46,47 @@ struct nsproxy {
 };
 ```
 
-> http://man7.org/linux/man-pages/man7/mount_namespaces.7.html
-> http://hustcat.github.io/namespace-implement-1/
+> http://hustcat.github.io/tags/#namespace
+> https://lwn.net/Articles/531114/
+
+#### PID Namespace
+
+#### Pid namespaces
+
+```
+#define _GNU_SOURCE
+#include<stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sched.h>
+#include <sys/wait.h>
+
+
+#define STACK_SIZE (1024 * 1024)
+static char cntr_stack[STACK_SIZE];
+char* const cntr_args[] = {
+    "/bin/bash",
+    NULL
+};
+
+int cntr_main(void* arg)
+{
+    printf("Container [%5d] - inside the container!\n", getpid());  // Container [    1] - inside the container!
+    sethostname("container",10);
+    execv(cntr_args[0], cntr_args);
+    printf("Something's wrong!\n");
+    return 1;
+}
+
+int main()
+{
+    printf("Parent [%5d] - start a container!\n", getpid());
+    int cntr_pid = clone(cntr_main, cntr_stack+STACK_SIZE, CLONE_NEWPID | SIGCHLD, NULL);
+    waitpid(cntr_pid, NULL, 0);
+    printf("Parent - container stopped!\n");
+    return 0;
+}
+```
 
 #### Mount namespaces
 
@@ -121,3 +160,5 @@ lrwxrwxrwx 1 ljin ljin 0 12月  7 22:47 uts -> uts:[4026531838]
 ns目录下内容以软连接的形式指向了硬盘上的inode。如果两个进程具有相同的namespace，那么这两个进程下的对应的namespace（例如ipc）指向同一个inode。
 
 一般而言，是看不到docker 的网络namespace的，需要使用`nsenter`
+
+
