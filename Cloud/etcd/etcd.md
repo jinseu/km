@@ -375,7 +375,7 @@ func kvsToEvents(wg *watcherGroup, revs, vals [][]byte) (evs []mvccpb.Event) {
         if err := kv.Unmarshal(v); err != nil {
             plog.Panicf("cannot unmarshal event: %v", err)
         }
-
+        // 判断key是否属于watchGroup中关注的key
         if !wg.contains(string(kv.Key)) {
             continue
         }
@@ -392,12 +392,9 @@ func kvsToEvents(wg *watcherGroup, revs, vals [][]byte) (evs []mvccpb.Event) {
 }
 ```
 
-最后需要说明的是删除key对应的revision也会保存到bbolt中，只是bbolt的key比较特别，由main+sub+”t”构成，普通的put的key 由main+sub构成。
+最后需要说明的是删除key对应的revision也会保存到bbolt中，只是bbolt的key比较特别，由`main+sub+'t'`构成，普通的put的key 由main+sub构成。附加的't'则是在删除时，通过`appendMarkTombstone`函数予以添加
 
 #### 注释
 
 1. `<-chan int`是一个管道类型，它叫做单向channel。如果是`<-chan int`，说明是只能读不能写的管道（也不能关闭），如果是`chan <- int`，说明是只能写不能读的管道（可以关闭）。
 
-#### 参考链接
-
-> https://draveness.me/etcd-introduction

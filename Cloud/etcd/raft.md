@@ -6,7 +6,7 @@ RAFT是一个一致性算法，那么一致性算法是什么呢？
 Consensus algorithms allow a collection of machines to work as a coherent group that can survive the failures of some of its members. Because of this, they play a key role in building reliable large-scale software systems.
 ```
 
-RAFT 算法可以看做三两部分组成:
+RAFT 算法由三部分组成:
 
 1. Leader Election
 2. Log Replication
