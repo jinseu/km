@@ -18,11 +18,6 @@ RAFT 算法有以下特点
 2. Leader election 即不指定leader，leader是通过一定的选举算法选举产生
 3. Membership changes 在集群配置变更（例如，成员变更）的时候，允许集群正常服务（joint consensus）
 
-为何有了Paxos，还会有raft
-
-1. Paxos 晦涩难懂
-2. 
-
 #### 复制状态机（replicated state machines)
 
 一致性算法一般需要和FSM（有限状态机）一起配合使用。复制状态机结构图如下，通常用复制日志的形式来实现。
@@ -37,14 +32,14 @@ RAFT 算法有以下特点
 
 1. 安全性，即从来不会返回错误的结果。
 2. 高可用性，只要集群中的大部分机器能运行，可以互相通信并且可以和客户端通信，这个集群就可用。
-3. 不依赖时序保证一致性，时钟错误和极端情况下的消息延迟在最坏的情况下才会引起可用性问题。
+3. 不依赖时序保证一致性，时钟错误和极端情况下的消息延迟在最坏的情况下才会引起可用性问题(即影响CAP中的A,但是会保证C)
 4. 通常情况下，一条命令能够尽可能快的在大多数节点做出响应时完成，一部分慢的机器不会影响系统的整体性能。
 
 #### CAP
 
 CAP定理（CAP theorem，此处的A和ACID中的A不是同一个词），指出对于一個分布式计算系统而言，不可能同時满足以下三点：
 
-1. 一致性（Consistency） writes are in order, and you'll get the same answer from multiple servers at any point in that order
+1. 一致性（Consistency） writes are in order, and you'll get the same answer from multiple servers at any point in that order （并不保证在同一时刻，从不同节点读到的值是一样的）
 2. 可用性（Availability）if a database node is running, you can always write to it
 3. 分区容错性（Partition tolerance）even if database nodes can't communicate with each other, you can still read the data
 
