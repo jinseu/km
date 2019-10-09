@@ -18,9 +18,9 @@ RAFT 算法有以下特点
 2. Leader election 即不指定leader，leader是通过一定的选举算法选举产生
 3. Membership changes 在集群配置变更（例如，成员变更）的时候，允许集群正常服务（joint consensus）
 
-#### 复制状态机（replicated state machines)
+#### 状态机（state machines)
 
-一致性算法一般需要和FSM（有限状态机）一起配合使用。复制状态机结构图如下，通常用复制日志的形式来实现。
+一致性算法一般需要和FSM（有限状态机）一起配合使用。状态机结构图如下，通常用复制日志的形式来实现。
 
 1. 每一个节点保存了一个包含一系列命令的日志。这些命令是该节点的状态机执行记录。
 2. 每一个节点的日志保存了同样的命令（命令的顺序也是相同的），即每一个节点的状态机执行了相同的命令序列。
@@ -39,7 +39,7 @@ RAFT 算法有以下特点
 
 CAP定理（CAP theorem，此处的A和ACID中的A不是同一个词），指出对于一個分布式计算系统而言，不可能同時满足以下三点：
 
-1. 一致性（Consistency） writes are in order, and you'll get the same answer from multiple servers at any point in that order （并不保证在同一时刻，从不同节点读到的值是一样的）
+1. 一致性（Consistency） writes are in order, and you'll get the same answer from multiple servers at any point in that order （并不保证在同一时刻，从不同节点读到的值是一样的，只保证从不同节点读取到“顺序”是一样的）
 2. 可用性（Availability）if a database node is running, you can always write to it
 3. 分区容错性（Partition tolerance）even if database nodes can't communicate with each other, you can still read the data
 
@@ -193,7 +193,7 @@ raft 协议中，将时间划分为任意长度的terms。terms 用递增的整�
  * 收到AppendEntries 请求，此时如果请求中的term >= currentTerm，那么就意味着另一个节点已经变成了Leader，该节点接收请求，同时变为Follower。如果term < currentTerm，那么拒绝该请求，并继续维持Candidate 状态。
  * 在超时之前，没有满足以上两个条件时，Candidate 会增加term，然后开始新一轮的选举。
 1. Leader 会周期性的发送Append Entries，作为心跳, Followers 会回答Append Entries，并重置election timeout。
-1. 7-8 两步会一直持续直到Follower停止接收心跳或者变为Candidate
+1. 以上两步会一直持续直到Follower停止接收心跳或者变为Candidate
 1. 在leader宕机后，由于Follower在election timeout时间内收不到来自Leader的消息，会自动变为Candidate
 
 在leader election完成之后，对etcd 集群的更改都将通过leader来完成。
@@ -210,11 +210,13 @@ raft 协议中，将时间划分为任意长度的terms。terms 用递增的整�
 
 #### Safety
 
+
+
 #### FAQ
 
 **1. etcd 中所有的客户端请求是否都会被送到Leader**
 
-1. 所有需要一致性的请求，都会被Follower转发给leader
+1. 所有需要一致性的请求（例如PUT)，都会被Follower转发给leader
 2. 不需要一致性的请求（serialized reads），可以被集群中的任意一个节点处理。
 
 **2. 替换一个故障节点前，是否应该先加入一个新节点**
