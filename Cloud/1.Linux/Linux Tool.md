@@ -9,9 +9,9 @@ Bash有几种不同的运行模式，`login shell`与`non-login shell`，`intera
 在下列情况下，可以获得一个login shell：
 
 1. 登录系统时获得的顶层shell，无论是通过本地终端登录，还是通过网络ssh登录。这种情况下获得的login shell是一个交互式shell。
-2. 在终端下使用--login选项调用bash，可以获得一个交互式login shell。
-3. 在脚本中使用--login选项调用bash（比如在shell脚本第一行做如下指定：#!/bin/bash --login），此时得到一个非交互式的login shell。
-4. 使用"su -"切换到指定用户时，获得此用户的login shell。如果不使用"-"，则获得non-login shell。
+2. 在终端下使用`--login`选项调用bash，可以获得一个交互式login shell。
+3. 在脚本中使用`--login`选项调用bash（比如在shell脚本第一行做如下指定：`#!/bin/bash --login`），此时得到一个非交互式的login shell。
+4. 使用`su -`切换到指定用户时，获得此用户的`login shell`。如果不使用`-`，则获得`non-login shell`。
 
 `login shell`与`non-login shell`的主要区别在于它们启动时会读取不同的配置文件，从而导致环境不一样。
 
