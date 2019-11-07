@@ -33,6 +33,7 @@ LeetCode
 |709|[709. To Lower Case](https://leetcode.com/problems/to-lower-case/description/)|[Go](./algorithms/String/709.go)|Easy|
 |700|[700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/description/)|[Go](./algorithms/BinaryTree/700.go)|Easy|
 |697|[697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array/description/)|[Go](./algorithms/Array/697.go)|Easy|
+|674|[674. Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)|[Go](./algorithms/Array/674.go)|Easy|
 |657|[657. Judge Route Circle](https://leetcode.com/problems/judge-route-circle/description/)|[Go](./algorithms/String/657.go)|Easy|
 |637|[637. Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/description/)|[Go](./algorithms/BinaryTree/637.go)|Medium|二叉树层次遍历|
 |617|[617. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees/description/)|[Go](./algorithms/BinaryTree/617.go)|Easy|
