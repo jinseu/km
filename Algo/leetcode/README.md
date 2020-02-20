@@ -5,6 +5,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
+|1282|[1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)|[Python](./algorithms/Array/1282.py)|Medium|数组|
 |1162|[1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/)|[Go](./algorithms/Dynamic/1162.go)|Medium|DP/BFS|
 |991|[991. Broken Calculator](https://leetcode.com/problems/broken-calculator/)|[Python](./algorithms/Math/991.py)|Medium|Math|
 |961|[961. N-Repeated Element in Size 2N Array](https://leetcode.com/contest/weekly-contest-116/problems/n-repeated-element-in-size-2n-array/)|[Go](./algorithms/Array/961.go)|Easy|数组|
