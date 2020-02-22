@@ -52,6 +52,7 @@ LeetCode
 |458|[Poor Pigs](https://leetcode.com/problems/poor-pigs/)|[Python](./algorithms/Math/458.py)|Easy|
 |453|[Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)|[Python](./algorithms/Math/453.py)|Easy|
 |451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Python](./algorithms/Sort/451.py)|Medium|
+|442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Go](./algorithms/Array/442.go)|Medium|数组|
 |434|[Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/)|[Python](./algorithms/String/434.py)/[JAVA](./algorithms/String/434.java)|Easy|
 |419|[Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/)|[Python](./algorithms/Array/419.py)|Medium|
 |394|[394. Decode String](https://leetcode.com/problems/decode-string/)|[Go](./algorithms/Stack/394.go)|Medium|
