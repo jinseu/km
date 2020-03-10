@@ -32,6 +32,7 @@ LeetCode
 |744|[744. Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/)|[Go](./algorithms/Array/744.go)|Easy|
 |733|[733. Flood Fill](https://leetcode.com/problems/flood-fill/description/)|[Go](./algorithms/Stack/733.go)|Easy|
 |728|[728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/description/)|[Go](./algorithms/Array/728.go)|Easy|数组|
+|724|[724. Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)|[Go](./algorithms/Array/724.go)|Easy|数组|
 |709|[709. To Lower Case](https://leetcode.com/problems/to-lower-case/description/)|[Go](./algorithms/String/709.go)|Easy|
 |700|[700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/description/)|[Go](./algorithms/BinaryTree/700.go)|Easy|
 |697|[697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array/description/)|[Go](./algorithms/Array/697.go)|Easy|
