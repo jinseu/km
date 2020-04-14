@@ -9,3 +9,6 @@ key=value:effect
 
 
 CheckNodeUnschedulablePredicate
+
+https://blog.frognew.com/2018/05/taint-and-toleration.html
+https://kubernetes.io/zh/docs/concepts/configuration/taint-and-toleration/
