@@ -5,9 +5,10 @@ LeetCode
 
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
-|1054|[1054. 距离相等的条形码](https://leetcode-cn.com/problems/distant-barcodes/)| [Go](./algorithms/heap/1054.go)|
 |1282|[1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)|[Python](./algorithms/Array/1282.py)|Medium|数组|
 |1162|[1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/)|[Go](./algorithms/Dynamic/1162.go)|Medium|DP/BFS|
+|1124|[1124. Longest Well-Performing Interval](https://leetcode-cn.com/problems/longest-well-performing-interval/)|[Go](./algorithms/Array/1124.go)|Medium|Array|
+|1054|[1054. 距离相等的条形码](https://leetcode-cn.com/problems/distant-barcodes/)| [Go](./algorithms/heap/1054.go)|
 |991|[991. Broken Calculator](https://leetcode.com/problems/broken-calculator/)|[Python](./algorithms/Math/991.py)|Medium|Math|
 |961|[961. N-Repeated Element in Size 2N Array](https://leetcode.com/contest/weekly-contest-116/problems/n-repeated-element-in-size-2n-array/)|[Go](./algorithms/Array/961.go)|Easy|数组|
 |957|[957. Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python](./algorithms/Array/957.py)|Medium|数组|
