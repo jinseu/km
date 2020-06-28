@@ -63,6 +63,7 @@ LeetCode
 |318|[Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths/)|[Python](./algorithms/String318.py)|Medium|
 |279|[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[JAVA](./algorithms/Dynamic/278.java)|Medium|
 |278|[First Bad Version](https://leetcode.com/problems/ugly-number/)|[Python](./algorithms/Math/263.py)|Easy|
+|274|[274. H-Index](https://leetcode-cn.com/problems/h-index/)|[Go](./algorithms/Array/274.go)|Medium|
 |268|[Missing Number](https://leetcode.com/problems/missing-number/)|[Python](./algorithms/Math/268.py)|Easy|
 |263|[Ugly Number](https://leetcode.com/problems/first-bad-version/)|[JAVA](./algorithms/BinaryTree/263.java)|Easy|
 |260|[Single Number III](https://leetcode.com/problems/single-number-iii//)|[Python](./algorithms/Math/260.py)|Medium|
