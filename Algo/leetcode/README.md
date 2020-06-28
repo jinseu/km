@@ -310,4 +310,5 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
+|196|[196. Delete Duplicate Emails](https://leetcode-cn.com/problems/delete-duplicate-emails/)|[SQL](./database/196.sql)|Easy|
 |627|[627. Swap Salary](https://leetcode.com/problems/swap-salary/description/)|[SQL](./database/627.sql)|Medium|
