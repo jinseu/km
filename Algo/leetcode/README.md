@@ -5,6 +5,7 @@ LeetCode
 
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
+|1156|[1156. 单字符重复子串的最大长度](https://leetcode-cn.com/problems/swap-for-longest-repeated-character-substring/)|[Go](./algorithms/Array/1156.go)|Medium|数组|
 |1282|[1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)|[Python](./algorithms/Array/1282.py)|Medium|数组|
 |1162|[1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/)|[Go](./algorithms/Dynamic/1162.go)|Medium|DP/BFS|
 |1124|[1124. Longest Well-Performing Interval](https://leetcode-cn.com/problems/longest-well-performing-interval/)|[Go](./algorithms/Array/1124.go)|Medium|Array|
