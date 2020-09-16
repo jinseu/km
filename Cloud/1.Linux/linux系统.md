@@ -188,35 +188,6 @@ A FIFO (short for First In First Out) has a name within the  filesystem  (create
 杀掉tty对应的进程
 iptables加防火墙规则
 
-### 10 apt-get和debian包
-
-####apt-get update，以及apt-get install mtr工作原理
-执行apt-get update
-
-程序分析/etc/apt/sources.list，获取包列表。
-
-ubuntu的软件源类型有4种分别为：
-main  Canonical-support open source softs  即canoniacl公司(ubuntu幕后的开发团队)支持的开源软件
-multiverse 各开源社区支持的开源软件
-restricted 有专利限制的设备驱动软件(主要是显卡驱动)
-universe   有版权限制的软件(但个人在一定条件下可以自由使用)
-
-ubuntu用于更新的软件源类型有4种分别为：
-security  重要的安全更新
-updates   建议的更新
-proposed  pre-release updates
-backports unsupported updates
-
-向source.list文件添加源的格式为：
-deb|deb-src  http://path/to/ubuntu/               ubuntu发行版名称 | 发行版名称-更新的类型      软件源类型 ...
-
-自动连网寻找list中对应的Packages/Sources/Release列表文件，如果有更新则下载之，存入/var/lib/apt/lists/目录
-
-在下载会先到对应目录下载Package.gz文件，获取包信息，包括包名，优先级，类型，维护者，架构，源文件（source），版本号，依赖包，冲突性信息，包大小，文件的下载路径，MD5sum，SHA1等。
-
-然后 apt-get install 相应的包 ，下载并安装。
-
-
 
 ####怎样升级一个软件
 
@@ -233,21 +204,7 @@ https://wiki.archlinux.org/index.php/SSH_keys_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96
 
 ###12 分区与挂载
 
-### 分区类型
-IDE 驱动器上有三种类型的分区：主分区、逻辑分区 和扩展分区。分区表 位于磁盘主引导记录 (MBR) 之中。分区表 位于磁盘主引导记录 (MBR) 中。MBR 是磁盘上的第一个扇区，因而分区表在其中所占空间不大。这限制了一个磁盘上的主分区数量，最多为 4 个。如果需要 4 个以上的主分区（往往需要 4 个以上的主分区），其中一个主分区就必须以扩展分区的形式出现。扩展分区是一个或多个逻辑分区的容器。这样，在一个使用 MBR 布局的驱动器上就可以有4 个以上的分区。
 
-####a. 将所有目录置于同一分区的优势和劣势
-
-####b. LVM
-
-LVM利用Linux内核的device-mapper来实现存储系统的虚拟化（系统分区独立于底层硬件）。 通过LVM，你可以实现存储空间的抽象化并在上面建立虚拟分区（virtual partitions），可以更简便地扩大和缩小分区，可以增删分区时无需担心某个硬盘上没有足够的连续空间。LVM由以下四部分构成：
-物理卷Physical volume (PV)：可以在上面建立卷组的媒介，可以是硬盘分区，也可以是硬盘本身或者回环文件（loopback file）。物理卷包括一个特殊的header，其余部分被切割为一块块物理区域（physical extents）。
-卷组Volume group (VG)：将一组物理卷收集为一个管理单元。
-逻辑卷Logical volume (LV)：虚拟分区，由物理区域（physical extents）组成。
-物理区域Physical extent (PE)：硬盘可供指派给逻辑卷的最小单位（通常为4MB）。
-
-诸如 mkfs 和 mount 文件系统命令使用 /dev/<vg-name>/<lv-name> 这样的名称访问 LV。
-vgcreate，lvcreate可以分别创建vg和lv
 
 
 
