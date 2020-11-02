@@ -23,6 +23,7 @@ LeetCode
 |852|[852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/description/)|[Go](./algorithms/Array/852.go)|Easy|数组遍历|
 |836|[836. Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/description/)|[Go](./algorithms/Math/836.go)|Easy|
 |832|[832. Flipping an Image](https://leetcode.com/problems/flipping-an-image/description/)|[Go](./algorithms/Array/832.go)|Easy|数组遍历|
+|829|[829. Consecutive Numbers Sum](https://leetcode-cn.com/problems/consecutive-numbers-sum/submissions/)|[Go](./algorithms/Math/829.go)|Hard|Math|
 |811|[811. Subdomain Visit Count](https://leetcode.com/problems/subdomain-visit-count/description/)|[Go](./algorithms/HashMap/811.go)|Easy|Hash|
 |806|[806. Number of Lines To Write String](https://leetcode.com/problems/number-of-lines-to-write-string/description/)|[Go](./algorithms/Array/806.go)|Easy|
 |804|[804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words/description/)|[Go](./algorithms/String/804.go)|Easy|
