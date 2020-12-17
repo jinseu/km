@@ -25,3 +25,12 @@ SHOW VARIABLES LIKE '%innodb_autoinc_lock_mode%';
 show index from tbl_name;
 show key from tbl_name
 ```
+
+
+#### 时间按一定区间聚集聚集
+
+可以使用`HOUR`, `MINUTE`函数
+
+```
+GROUP BY HOUR(date), MINUTE(date)
+```
