@@ -320,3 +320,9 @@ LeetCode
 |---| ----- | -------- | ---------- |
 |196|[196. Delete Duplicate Emails](https://leetcode-cn.com/problems/delete-duplicate-emails/)|[SQL](./database/196.sql)|Easy|
 |627|[627. Swap Salary](https://leetcode.com/problems/swap-salary/description/)|[SQL](./database/627.sql)|Medium|
+
+###LeetCode Concurrency
+
+| # | Title | Solution | Difficulty |
+|---| ----- | -------- | ---------- |
+|1114|[1114. Print in Order](https://leetcode.com/problems/print-in-order/)|[Java](./concurrent/1114.java)|Easy|
