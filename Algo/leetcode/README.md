@@ -1,10 +1,11 @@
 LeetCode
 ========
 
-###LeetCode Algorithm
+### LeetCode Algorithm
 
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
+|1544|[1544. Make The String Great](https://leetcode.com/problems/make-the-string-great/)| [Go](./algorithms/Stack/1544.go) | Easy | 栈|
 |1156|[1156. 单字符重复子串的最大长度](https://leetcode-cn.com/problems/swap-for-longest-repeated-character-substring/)|[Go](./algorithms/Array/1156.go)|Medium|数组|
 |1282|[1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)|[Python](./algorithms/Array/1282.py)|Medium|数组|
 |1162|[1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/)|[Go](./algorithms/Dynamic/1162.go)|Medium|DP/BFS|
@@ -15,6 +16,7 @@ LeetCode
 |961|[961. N-Repeated Element in Size 2N Array](https://leetcode.com/contest/weekly-contest-116/problems/n-repeated-element-in-size-2n-array/)|[Go](./algorithms/Array/961.go)|Easy|数组|
 |957|[957. Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python](./algorithms/Array/957.py)|Medium|数组|
 |953|[953. Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)|[Python](./algorithms/String/953.py)|Easy|数组|
+|914|[914. X of a Kind in a Deck of Cards](https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards/)|[Go](./algorithms/Math/914.go)|Easy| Math|
 |905|[905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/description/)|[Go](./algorithms/Array/905.go)|Easy|数组|
 |887|[887. Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes/description/)|[Go](./algorithms/Math/887.go)|Easy|数组遍历/Math 3D|
 |876|[876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/description/)|[Go](./algorithms/LinkedList/876.go)|Easy|链表遍历|
@@ -320,3 +322,9 @@ LeetCode
 |---| ----- | -------- | ---------- |
 |196|[196. Delete Duplicate Emails](https://leetcode-cn.com/problems/delete-duplicate-emails/)|[SQL](./database/196.sql)|Easy|
 |627|[627. Swap Salary](https://leetcode.com/problems/swap-salary/description/)|[SQL](./database/627.sql)|Medium|
+
+###LeetCode Concurrency
+
+| # | Title | Solution | Difficulty |
+|---| ----- | -------- | ---------- |
+|1114|[1114. Print in Order](https://leetcode.com/problems/print-in-order/)|[Java](./concurrent/1114.java)|Easy|
