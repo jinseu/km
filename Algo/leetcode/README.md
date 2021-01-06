@@ -16,6 +16,7 @@ LeetCode
 |961|[961. N-Repeated Element in Size 2N Array](https://leetcode.com/contest/weekly-contest-116/problems/n-repeated-element-in-size-2n-array/)|[Go](./algorithms/Array/961.go)|Easy|数组|
 |957|[957. Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/)|[Python](./algorithms/Array/957.py)|Medium|数组|
 |953|[953. Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)|[Python](./algorithms/String/953.py)|Easy|数组|
+|927|[927. Three Equal Parts](https://leetcode-cn.com/problems/three-equal-parts/)|[Python](./algorithms/Array/927.py)||Array|
 |914|[914. X of a Kind in a Deck of Cards](https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards/)|[Go](./algorithms/Math/914.go)|Easy| Math|
 |905|[905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/description/)|[Go](./algorithms/Array/905.go)|Easy|数组|
 |887|[887. Projection Area of 3D Shapes](https://leetcode.com/problems/projection-area-of-3d-shapes/description/)|[Go](./algorithms/Math/887.go)|Easy|数组遍历/Math 3D|
