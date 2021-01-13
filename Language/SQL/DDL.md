@@ -1,4 +1,10 @@
 
+**查看创建库语句**
+
+```
+SHOW CREATE TABLE "TABLE_NAME"
+```
+
 **更改列**
 
 ```
