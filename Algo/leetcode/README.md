@@ -330,3 +330,4 @@ LeetCode
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
 |1114|[1114. Print in Order](https://leetcode.com/problems/print-in-order/)|[Java](./concurrent/1114.java)|Easy|
+|1115|[1115. Print FooBar Alternately](https://leetcode-cn.com/problems/print-foobar-alternately/)|[Java](./concurrent/1115.java)|Medium|
