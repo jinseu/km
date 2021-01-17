@@ -6,6 +6,7 @@ LeetCode
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
 |1544|[1544. Make The String Great](https://leetcode.com/problems/make-the-string-great/)| [Go](./algorithms/Stack/1544.go) | Easy | 栈|
+|1175|[1175. Prime Arrangements](https://leetcode-cn.com/problems/prime-arrangements/) | [JAVA](./algorithms/Math/1175.java) |Easy | Math|
 |1156|[1156. 单字符重复子串的最大长度](https://leetcode-cn.com/problems/swap-for-longest-repeated-character-substring/)|[Go](./algorithms/Array/1156.go)|Medium|数组|
 |1282|[1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)|[Python](./algorithms/Array/1282.py)|Medium|数组|
 |1162|[1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/)|[Go](./algorithms/Dynamic/1162.go)|Medium|DP/BFS|
