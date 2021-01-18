@@ -6,12 +6,17 @@ LeetCode
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
 |1544|[1544. Make The String Great](https://leetcode.com/problems/make-the-string-great/)| [Go](./algorithms/Stack/1544.go) | Easy | 栈|
+<<<<<<< HEAD
 |1383|[1383. Maximum Performance of a Team](https://leetcode-cn.com/problems/maximum-performance-of-a-team/)| [Python](./algorithms/heap/1383.py)/[Java](./algorithms/heap/1383.java) | Hard | heap |
+=======
+|1175|[1175. Prime Arrangements](https://leetcode-cn.com/problems/prime-arrangements/) | [JAVA](./algorithms/Math/1175.java) |Easy | Math|
+>>>>>>> 1128a7196ff8ad321f4d5d4874905968ace99bfe
 |1156|[1156. 单字符重复子串的最大长度](https://leetcode-cn.com/problems/swap-for-longest-repeated-character-substring/)|[Go](./algorithms/Array/1156.go)|Medium|数组|
 |1282|[1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/)|[Python](./algorithms/Array/1282.py)|Medium|数组|
 |1162|[1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible/)|[Go](./algorithms/Dynamic/1162.go)|Medium|DP/BFS|
 |1124|[1124. Longest Well-Performing Interval](https://leetcode-cn.com/problems/longest-well-performing-interval/)|[Go](./algorithms/Array/1124.go)|Medium|Array|
 |1054|[1054. 距离相等的条形码](https://leetcode-cn.com/problems/distant-barcodes/)| [Go](./algorithms/heap/1054.go)|
+|1047|[1047. Remove All Adjacent Duplicates In String](https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/)|[Python](./algorithms/Stack/1047.go)|Easy|Stack|
 |1028|[1028. 从先序遍历还原二叉树](https://leetcode-cn.com/classic/problems/recover-a-tree-from-preorder-traversal/description/)|[Go](./algorithms/Tree/1028.go)|Hard|Tree|
 |991|[991. Broken Calculator](https://leetcode.com/problems/broken-calculator/)|[Python](./algorithms/Math/991.py)|Medium|Math|
 |961|[961. N-Repeated Element in Size 2N Array](https://leetcode.com/contest/weekly-contest-116/problems/n-repeated-element-in-size-2n-array/)|[Go](./algorithms/Array/961.go)|Easy|数组|
@@ -331,3 +336,4 @@ LeetCode
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
 |1114|[1114. Print in Order](https://leetcode.com/problems/print-in-order/)|[Java](./concurrent/1114.java)|Easy|
+|1115|[1115. Print FooBar Alternately](https://leetcode-cn.com/problems/print-foobar-alternately/)|[Java](./concurrent/1115.java)|Medium|
