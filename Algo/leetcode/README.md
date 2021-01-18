@@ -42,6 +42,7 @@ LeetCode
 |733|[733. Flood Fill](https://leetcode.com/problems/flood-fill/description/)|[Go](./algorithms/Stack/733.go)|Easy|
 |728|[728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers/description/)|[Go](./algorithms/Array/728.go)|Easy|数组|
 |724|[724. Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)|[Go](./algorithms/Array/724.go)|Easy|数组|
+|720|[720. Longest Word in Dictionary](https://leetcode-cn.com/problems/longest-word-in-dictionary/) | [Python](./algorithms/Backtracking/720.py) | Easy| 回溯 （此题似乎有问题，题目并没有说明白，只能从单个字符开始|
 |709|[709. To Lower Case](https://leetcode.com/problems/to-lower-case/description/)|[Go](./algorithms/String/709.go)|Easy|
 |700|[700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/description/)|[Go](./algorithms/BinaryTree/700.go)|Easy|
 |697|[697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array/description/)|[Go](./algorithms/Array/697.go)|Easy|
