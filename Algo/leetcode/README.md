@@ -69,6 +69,7 @@ LeetCode
 |434|[Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/)|[Python](./algorithms/String/434.py)/[JAVA](./algorithms/String/434.java)|Easy|
 |419|[Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/)|[Python](./algorithms/Array/419.py)|Medium|
 |394|[394. Decode String](https://leetcode.com/problems/decode-string/)|[Go](./algorithms/Stack/394.go)|Medium|
+|383|[383. Ransom Note](https://leetcode-cn.com/problems/ransom-note/)|[Python](./algorithms/HashMap/383.py)[JAVA](./algorithms/HashMap/383.java)|Easy|
 |343|[Integer Break](https://leetcode.com/problems/integer-break/)|[Go](./algorithms/Math/341.go)|Medium|
 |318|[Maximum Product of Word Lengths](https://leetcode.com/problems/maximum-product-of-word-lengths/)|[Python](./algorithms/String318.py)|Medium|
 |279|[Perfect Squares](https://leetcode.com/problems/perfect-squares/)|[JAVA](./algorithms/Dynamic/278.java)|Medium|
