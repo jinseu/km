@@ -6,6 +6,7 @@ LeetCode
 | # | Title | Solution | Difficulty | tag |
 |---| ----- | -------- | ---------- | -------- |
 |1544|[1544. Make The String Great](https://leetcode.com/problems/make-the-string-great/)| [Go](./algorithms/Stack/1544.go) | Easy | 栈|
+|1448|[1448. Count Good Nodes in Binary Tree](https://leetcode-cn.com/problems/count-good-nodes-in-binary-tree/) | [Python](./algorithms/BinaryTree/1448.py) | Medium | BinaryTree|
 |1383|[1383. Maximum Performance of a Team](https://leetcode-cn.com/problems/maximum-performance-of-a-team/)| [Python](./algorithms/heap/1383.py)/[Java](./algorithms/heap/1383.java) | Hard | heap |
 |1175|[1175. Prime Arrangements](https://leetcode-cn.com/problems/prime-arrangements/) | [JAVA](./algorithms/Math/1175.java) |Easy | Math|
 |1156|[1156. 单字符重复子串的最大长度](https://leetcode-cn.com/problems/swap-for-longest-repeated-character-substring/)|[Go](./algorithms/Array/1156.go)|Medium|数组|
