@@ -70,7 +70,7 @@ LeetCode
 |451|[Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)|[Python](./algorithms/Sort/451.py)|Medium|
 |442|[Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)|[Go](./algorithms/Array/442.go)|Medium|数组|
 |434|[Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/)|[Python](./algorithms/String/434.py)/[JAVA](./algorithms/String/434.java)|Easy|
-|433|[433. Minimum Genetic Mutation](https://leetcode-cn.com/problems/minimum-genetic-mutation/)|[JAVA](./algorithms/Backtracking/433.java) | Medium| Backtracking |
+|433|[433. Minimum Genetic Mutation](https://leetcode-cn.com/problems/minimum-genetic-mutation/submissions/)|[Python](./algorithms/Backtracking/433.py)/[JAVA](./algorithms/Backtracking/433.java)|Easy|
 |419|[Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/)|[Python](./algorithms/Array/419.py)|Medium|
 |394|[394. Decode String](https://leetcode.com/problems/decode-string/)|[Go](./algorithms/Stack/394.go)|Medium|
 |383|[383. Ransom Note](https://leetcode-cn.com/problems/ransom-note/)|[Python](./algorithms/HashMap/383.py)[JAVA](./algorithms/HashMap/383.java)|Easy|
