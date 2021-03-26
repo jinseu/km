@@ -13,3 +13,7 @@ https://blog.golang.org/h2push
 4. makefile
 
 https://seisman.github.io/how-to-write-makefile/overview.html#id2
+
+5. Go 内存管理，channel实现
+
+6. Cgroup 隔离方式，IO，网络
