@@ -14,5 +14,11 @@ https://blog.golang.org/h2push
 
 https://seisman.github.io/how-to-write-makefile/overview.html#id2
 
+
+5. Go 内存管理，channel实现
+
+6. Cgroup 隔离方式，IO，网络
+
 https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/
 https://www.igvita.com/2011/08/01/protocol-buffers-avro-thrift-messagepack/
+
