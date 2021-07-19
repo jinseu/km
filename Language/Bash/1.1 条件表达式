@@ -1,0 +1,86 @@
+## 条件表达式
+
+在说明shell的条件表达式前，首先需要明确两件事
+
+**1. 标准的if句式**
+
+标准的if句式如下
+
+```
+if {command1}
+then
+    {command list}
+fi
+```
+
+if 命令会先执行上面的 command1，如果 command1 的返回值为 0 ，则代表成功，继续执行后面的 command list，否则代表失败，跳过 command list。
+在`[`, `[[`, `(`, `((`中，只有单中括号 [ ] 是兼容 posix shell 标准的，比如 Bourne shell（/bin/sh）, ash, dash 这些，而其他一切双方括号，双圆括号都不兼容 posix shell 标准，而是 bash 特有的语法扩展。
+
+**2. test/[ 命令**
+
+在标准的if语句中只能通过command1的返回值来判断if是否成立，所以为了方便起见，还有两个二进制程序 `test`, `[`（`[`是个可执行的二进制，并不是bash内置语法）可用于辅助进行条件判断。
+`test`, `[`用法完全一致，只是`[` 限制了参数必须以`]`符号结尾，直接调用会输出`/usr/bin/[: missing ']'`。
+
+于是，以下两种写法是完全等价的
+
+```
+test -a /tmp; echo $?   # 调用 test 判断 /tmp 是否存在，并打印 test 的返回值
+[ -a /tmp ]; echo $?    # 和上面完全等价，/tmp 肯定是存在的，所以输出是 0
+```
+
+
+### 条件判断
+
+`test`, `[` 命令支持的条件判断，包括以下内容，需要注意，判断正确时，命令`exit status`为0
+
+```
+exp1 -a exp2              # exp1 和 exp2 同时为真时返回真
+exp1 -o exp2              # exp1 和 exp2 有一个为真就返回真
+( expression )            # 如果 expression 为真时返回真，输入注意括号前反斜杆
+! expression              # 如果 expression 为假那返回真
+
+str1 = str2               # 判断字符串相等，如 [ "$x" = "$y" ] && echo yes
+str1 != str2              # 判断字符串不等，如 [ "$x" != "$y" ] && echo yes
+str1 < str2               # 字符串小于，如 [ "$x" \< "$y" ] && echo yes
+str2 > str2               # 字符串大于，注意 < 或 > 是字面量，输入时要加反斜杆
+-n str1                   # 判断字符串不为空（长度大于零）
+-z str1                   # 判断字符串为空（长度等于零）
+
+-a file                   # 判断文件存在，如 [ -a /tmp/abc ] && echo "exists"
+-d file                   # 判断文件存在，且该文件是一个目录
+-e file                   # 判断文件存在，和 -a 等价
+-f file                   # 判断文件存在，且该文件是一个普通文件（非目录等）
+-r file                   # 判断文件存在，且可读
+-s file                   # 判断文件存在，且尺寸大于0
+-w file                   # 判断文件存在，且可写
+-x file                   # 判断文件存在，且执行
+
+num1 -eq num2             # 数字判断：num1 == num2
+num1 -ne num2             # 数字判断：num1 != num2
+num1 -lt num2             # 数字判断：num1 < num2
+num1 -le num2             # 数字判断：num1 <= num2
+num1 -gt num2             # 数字判断：num1 > num2
+num1 -ge num2             # 数字判断：num1 >= num2
+```
+
+### bash 扩展
+
+为了更方便用户，bash在原有posix标准之外，提供了`[[`，`((` 两种扩展。
+
+- `((` 表达式支持数字计算，如果计算结果为0，那么`exit status`为1，如果计算结果不为0，`exit status`为0
+- `[[` 表达式支持对字符串进行`==`、`!=`等操作。需要注意使用 `>`, `<` 时，如果不与`((`一起使用，那么数字会被当做字符串对待，按照字母序判断大小
+
+
+```
+> [[ 103 > 1022 ]]; echo $?
+0
+> [[ 103 < 1022 ]]; echo $?
+1
+> [[ ((103 > 1022)) ]]; echo $?
+0
+> [[ ((103 < 1022)) ]]; echo $?
+1
+```
+
+> https://github.com/skywind3000/awesome-cheatsheets/blob/master/languages/bash.sh
+> https://developer.ibm.com/tutorials/l-bash-test/
