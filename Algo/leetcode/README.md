@@ -53,6 +53,7 @@ LeetCode
 |697|[697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array/description/)|[Go](./algorithms/Array/697.go)|Easy|
 |674|[674. Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)|[Go](./algorithms/Array/674.go)|Easy|
 |657|[657. Judge Route Circle](https://leetcode.com/problems/judge-route-circle/description/)|[Go](./algorithms/String/657.go)|Easy|
+|643|[643. Maximum Average Subarray I](https://leetcode-cn.com/problems/maximum-average-subarray-i/)|[C++](./algorithms/Array/643.cpp)|Easy|
 |637|[637. Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/description/)|[Go](./algorithms/BinaryTree/637.go)|Medium|二叉树层次遍历|
 |617|[617. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees/description/)|[Go](./algorithms/BinaryTree/617.go)|Easy|
 |605|[605. Can Place Flowers](https://leetcode.com/problems/can-place-flowers/)|[Go](./algorithms/Array/605.go)|Easy|数组|
